@@ -8,7 +8,11 @@ Simple and obvious examples for using `rust-protobuf` module were lacking, so th
 
 ## Look here
 
-Key files to read are:  src/protos/example.proto, src/main.rs and build.rs.
+Key files to read are:
+
+* src/protos/example.proto
+* src/main.rs
+* build.rs
 
 ## Using
 
