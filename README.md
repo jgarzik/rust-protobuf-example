@@ -6,6 +6,14 @@ Example rust protobuf project
 
 Simple and obvious examples for using `rust-protobuf` module were lacking, so this was created.
 
+## Dependencies
+
+protoc (Protobuf Compiler)
+
+### Installing Protoc on Ubuntu (and similar)
+
+`sudo apt install protobuf-compiler`
+
 ## Look here
 
 Key files to read are:
