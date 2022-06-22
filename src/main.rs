@@ -1,7 +1,6 @@
-
 mod protos;
-use protos::example::{GetRequest,GetResponse,GetResponse_Status};
-use protobuf::{parse_from_bytes,Message};
+use protobuf::Message;
+use protos::example::{GetRequest, GetResponse, GetResponse_Status};
 
 fn main() {
     // Encode example request
@@ -14,7 +13,7 @@ fn main() {
     let out_bytes: Vec<u8> = out_msg.write_to_bytes().unwrap();
 
     // Decode example request
-    let in_msg = parse_from_bytes::<GetRequest>(&out_bytes).unwrap();
+    let in_msg = GetRequest::parse_from_bytes(&out_bytes).unwrap();
 
     let in_name = in_msg.get_name();
 
@@ -32,7 +31,7 @@ fn main() {
     let out_bytes: Vec<u8> = out_resp.write_to_bytes().unwrap();
 
     // Decode example response
-    let in_resp = parse_from_bytes::<GetResponse>(&out_bytes).unwrap();
+    let in_resp = GetResponse::parse_from_bytes(&out_bytes).unwrap();
 
     assert_eq!(in_resp.status, out_resp.status);
     assert_eq!(in_resp.zipcode, out_resp.zipcode);
