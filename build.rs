@@ -1,10 +1,7 @@
-extern crate protoc_rust;
-
 fn main() {
-    protoc_rust::Codegen::new()
-        .out_dir("src/protos")
-        .inputs(&["src/protos/example.proto"])
-        .includes(&["src/protos"])
-        .run()
-        .expect("protoc");
+    protobuf_codegen::Codegen::new()
+        .cargo_out_dir("protos")
+        .include("src")
+        .input("src/protos/example.proto")
+        .run_from_script();
 }

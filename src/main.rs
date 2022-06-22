@@ -1,12 +1,14 @@
-mod protos;
-use protobuf::Message;
-use protos::example::{GetRequest, GetResponse, GetResponse_Status};
+use protobuf::{EnumOrUnknown, Message};
+
+include!(concat!(env!("OUT_DIR"), "/protos/mod.rs"));
+
+use example::{get_response, GetRequest, GetResponse};
 
 fn main() {
     // Encode example request
     let mut out_msg = GetRequest::new();
-    out_msg.set_name("John Smith".to_string());
-    out_msg.set_age(25);
+    out_msg.name = "John Smith".to_string();
+    out_msg.age = 25;
     out_msg.features.push("one".to_string());
     out_msg.features.push("two".to_string());
 
@@ -15,7 +17,7 @@ fn main() {
     // Decode example request
     let in_msg = GetRequest::parse_from_bytes(&out_bytes).unwrap();
 
-    let in_name = in_msg.get_name();
+    let in_name = in_msg.name;
 
     assert_eq!(in_name, "John Smith");
 
@@ -23,10 +25,10 @@ fn main() {
 
     // Encode example response
     let mut out_resp = GetResponse::new();
-    out_resp.status = GetResponse_Status::OK;
-    out_resp.set_address("1243 main street".to_string());
-    out_resp.set_city("anytown".to_string());
-    out_resp.set_zipcode(54321);
+    out_resp.status = EnumOrUnknown::new(get_response::Status::OK);
+    out_resp.address = "1243 main street".to_string();
+    out_resp.city = "anytown".to_string();
+    out_resp.zipcode = 54321;
 
     let out_bytes: Vec<u8> = out_resp.write_to_bytes().unwrap();
 
@@ -35,5 +37,5 @@ fn main() {
 
     assert_eq!(in_resp.status, out_resp.status);
     assert_eq!(in_resp.zipcode, out_resp.zipcode);
-    assert_eq!(in_resp.get_address(), out_resp.get_address());
+    assert_eq!(in_resp.address, out_resp.address);
 }
