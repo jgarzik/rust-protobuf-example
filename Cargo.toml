@@ -7,7 +7,8 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-protobuf = "2"
+protobuf = "3"
 
 [build-dependencies]
-protoc-rust = "2.0"
+protobuf-codegen = "3"
+protoc-rust = "^2.0"
