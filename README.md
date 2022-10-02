@@ -10,6 +10,8 @@ Simple and obvious examples for using `rust-protobuf` module were lacking, so th
 
 protoc (Protobuf Compiler)
 
+[Installation instructions](https://grpc.io/docs/protoc-installation)
+
 ### Installing Protoc on Ubuntu (and similar)
 
 `sudo apt install protobuf-compiler`
@@ -32,4 +34,4 @@ $ cargo run
 
 ## Contributions
 
-Contributions are welcome.  File an issue or PR.
+Contributions are welcome. File an issue or PR.
