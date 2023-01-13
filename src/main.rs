@@ -11,8 +11,10 @@ fn main() {
     out_msg.age = 25;
     out_msg.features.push("one".to_string());
     out_msg.features.push("two".to_string());
+    println!("Message request:\nout_msg {:#?}", out_msg);
 
     let out_bytes: Vec<u8> = out_msg.write_to_bytes().unwrap();
+    println!("Message request in bytes:\nout_bytes {:?}", out_bytes);
 
     // Decode example request
     let in_msg = GetRequest::parse_from_bytes(&out_bytes).unwrap();
@@ -29,8 +31,10 @@ fn main() {
     out_resp.address = "1243 main street".to_string();
     out_resp.city = "anytown".to_string();
     out_resp.zipcode = 54321;
+    println!("\nMessage response:\nout_msg {:#?}", out_resp);
 
     let out_bytes: Vec<u8> = out_resp.write_to_bytes().unwrap();
+    println!("Message response in bytes:\nout_bytes {:?}", out_bytes);
 
     // Decode example response
     let in_resp = GetResponse::parse_from_bytes(&out_bytes).unwrap();
