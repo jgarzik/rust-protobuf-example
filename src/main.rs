@@ -19,9 +19,9 @@ fn main() {
     // Decode example request
     let in_msg = GetRequest::parse_from_bytes(&out_bytes).unwrap();
 
-    let in_name = in_msg.name;
-
-    assert_eq!(in_name, "John Smith");
+    assert_eq!(in_msg.name, out_msg.name);
+    assert_eq!(in_msg.age, out_msg.age);
+    assert_eq!(in_msg.features, out_msg.features);
 
     //////////////////////////////////
 
@@ -40,6 +40,7 @@ fn main() {
     let in_resp = GetResponse::parse_from_bytes(&out_bytes).unwrap();
 
     assert_eq!(in_resp.status, out_resp.status);
-    assert_eq!(in_resp.zipcode, out_resp.zipcode);
     assert_eq!(in_resp.address, out_resp.address);
+    assert_eq!(in_resp.city, out_resp.city);
+    assert_eq!(in_resp.zipcode, out_resp.zipcode);
 }
