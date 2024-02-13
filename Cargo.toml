@@ -1,8 +1,11 @@
 [package]
 name = "rust-protobuf-example"
 version = "1.2.1"
-authors = ["Jeff Garzik <jeff@bloq.com>"]
-edition = "2018"
+edition = "2021"
+authors = ["Jeff Garzik"]
+license = "MIT"
+readme = "README.md"
+description = "Working example using Protocol Buffers (protobufs)"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
